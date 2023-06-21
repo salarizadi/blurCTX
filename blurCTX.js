@@ -20,7 +20,7 @@
  *   }
  * ];
  *
- * 3. Attach the context menu to the target element.
+ * Attach the context menu to the target element.
  *
  * const ctx = new CTX({
  *   target    : ".item", // $(".item")
@@ -28,7 +28,12 @@
  *   menuItems : ctxItems
  * });
  *
- * 4. Initialize the context menu. Done.
+ * const ctx = $(".item").blurCTX({
+ *   mode      : "light", // Dark & Light
+ *   menuItems : ctxItems
+ * });
+ *
+ * Initialize the context menu. Done.
  *
  * ctx.init();
  */
@@ -156,3 +161,15 @@ class blurCTX {
         });
     }
 }
+
+(function ( $ ) {
+
+    $.fn.blurCTX = function ( options ) {
+        return new blurCTX($.extend(true, {
+            target   : this,
+            mode     : "light",
+            menuItems: []
+        }, options));
+    }
+
+})(jQuery);
