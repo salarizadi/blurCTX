@@ -28,6 +28,13 @@ const ctx = new blurCTX({
 });
 ```
 
+```js
+const ctx = $(".item").blurCTX({
+   mode      : "light", // Dark & Light
+   menuItems : ctxItems
+});
+```
+
 ### Initialize the context menu. Done.
 ```js
 ctx.init();
