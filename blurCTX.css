@@ -1,0 +1,145 @@
+/**
+ *  Copyright (c) 2023
+ *  @Version    : 1.0.0
+ *  @Repository : https://github.com/salarizadi/blurCTX
+ *  @Author     : https://salarizadi.github.io
+ */
+
+.contextMenu {
+    --menu-border: rgba(255, 255, 255, 0.08);
+    --menu-bg: linear-gradient(45deg, rgb(0 9 255 / 20%) 0%, rgb(0 64 255 / 70%) 100%);
+    --item-border: rgb(129 78 122 / 10%);
+    --item-color: #fff;
+    --item-bg-hover: rgba(255, 255, 255, 0.1);
+    min-width: 150px;
+    height: 0;
+    overflow: hidden;
+    background: var(--menu-bg);
+    -webkit-backdrop-filter: blur(5px);
+    backdrop-filter: blur(5px);
+    position: fixed;
+    top: var(--top);
+    left: var(--left);
+    -webkit-animation: menuAnimation 0.4s 0s both;
+    animation: menuAnimation 0.4s 0s both;
+    transform-origin: left;
+    list-style: none;
+    margin: 4px;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    z-index: 999999999;
+    box-shadow: rgba(0, 0, 0, 0.09) 0 3px 12px;
+}
+
+.contextMenu-item {
+    padding: 4px;
+}
+
+.contextMenu-item[data-divider=top] {
+    border-top: 1px solid;
+}
+
+.contextMenu-item[data-divider=bottom] {
+    border-bottom: 1px solid;
+}
+
+.contextMenu-item[data-divider=top-bottom] {
+    border-top: 1px solid;
+    border-bottom: 1px solid;
+}
+
+.contextMenu-item[data-divider] {
+    border-color: var(--item-border);
+}
+
+.contextMenu-button {
+    color: var(--item-color);
+    background: 0;
+    border: 0;
+    white-space: nowrap;
+    width: 100%;
+    border-radius: 4px;
+    padding: 6px 8px 6px 7px;
+    text-align: left;
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    width: 100%;
+    -webkit-animation: menuItemAnimation 0.2s 0s both;
+    animation: menuItemAnimation 0.2s 0s both;
+    font-family: "Inter", sans-serif;
+    cursor: pointer;
+}
+
+.contextMenu-button:hover {
+    background-color: var(--item-bg-hover);
+}
+
+.contextMenu-button i {
+    margin-right: 5px;
+}
+html[dir="rtl"] .contextMenu-button i,
+body.rtl .contextMenu-button i {
+    margin-left: 5px;
+}
+
+.contextMenu[data-theme=light] {
+    --menu-bg: linear-gradient(
+            45deg,
+            rgba(255, 255, 255, 0.45) 0%,
+            rgba(255, 255, 255, 0.85) 100%
+    );
+    --menu-border: rgba(0, 0, 0, 0.08);
+    --item-border: rgba(0, 0, 0, 0.1);
+    --item-color: rgb(10, 20, 28);
+    --item-bg-hover: rgba(10, 20, 28, 0.09);
+}
+
+@-webkit-keyframes menuAnimation {
+    0% {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+    100% {
+        height: var(--height);
+        opacity: 1;
+        border-radius: 8px;
+        transform: scale(1);
+    }
+}
+
+@keyframes menuAnimation {
+    0% {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+    100% {
+        height: var(--height);
+        opacity: 1;
+        border-radius: 8px;
+        transform: scale(1);
+    }
+}
+
+@-webkit-keyframes menuItemAnimation {
+    0% {
+        opacity: 0;
+        transform: translateX(-10px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes menuItemAnimation {
+    0% {
+        opacity: 0;
+        transform: translateX(-10px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
