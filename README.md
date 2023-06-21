@@ -17,16 +17,18 @@ const ctxItems = [
     divider: "top" // top, bottom, top-bottom
   }
 ];
+```
 
-3. Attach the context menu to the target element.
-
+### Attach the context menu to the target element.
+```js
 const ctx = new blurCTX({
   target    : ".item", // $(".item")
   mode      : "light", // Dark & Light
   menuItems : ctxItems
 });
+```
 
-4. Initialize the context menu. Done.
-
+### Initialize the context menu. Done.
+```js
 ctx.init();
 ```
